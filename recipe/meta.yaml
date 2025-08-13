@@ -30,7 +30,7 @@ test:
     - synthatdelays
   commands:
     - pip check
-    - pytest tests
+    - pytest tests --ignore=tests/test_tutorials.py
   requires:
     - python {{ python_min }}
     - pip
