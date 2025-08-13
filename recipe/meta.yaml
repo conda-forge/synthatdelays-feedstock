@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/synthatdelays-{{ version }}.tar.gz
-  sha256: 77410bc310720ae475325e579759d6089d653a48958fa966738a96f064a78134
+  sha256: 1d1c1f3f604817ce060ae56401db1467f4fc0f2b865f5cf503ed5d60eabca26b
 
 build:
   noarch: python
