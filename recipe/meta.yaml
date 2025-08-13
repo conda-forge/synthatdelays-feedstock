@@ -1,6 +1,6 @@
 {% set name = "synthatdelays" %}
-{% set version = "1.0.1" %}
-{% set python_min = "3.13" %}
+{% set version = "1.0.2" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/synthatdelays-{{ version }}.tar.gz
-  sha256: 77410bc310720ae475325e579759d6089d653a48958fa966738a96f064a78134
+  sha256: 1d1c1f3f604817ce060ae56401db1467f4fc0f2b865f5cf503ed5d60eabca26b
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -30,9 +30,13 @@ test:
     - synthatdelays
   commands:
     - pip check
+    - pytest tests --ignore=tests/test_tutorials.py
   requires:
     - python {{ python_min }}
     - pip
+    - pytest
+  source_files:
+    - tests
 
 about:
   summary: A library with a minimal model of operations between airports, designed to synthesise realistic time series of delays and operations.
