@@ -1,6 +1,6 @@
 {% set name = "synthatdelays" %}
-{% set version = "1.0.1" %}
-{% set python_min = "3.13" %}
+{% set version = "1.0.2" %}
+{% set python_min = "3.11" %}
 
 package:
   name: {{ name|lower }}
@@ -30,9 +30,13 @@ test:
     - synthatdelays
   commands:
     - pip check
+    - pytest tests
   requires:
     - python {{ python_min }}
     - pip
+    - pytest
+  source_files:
+    - tests
 
 about:
   summary: A library with a minimal model of operations between airports, designed to synthesise realistic time series of delays and operations.
